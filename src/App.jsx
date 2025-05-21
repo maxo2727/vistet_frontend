@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <h1>VisteT</h1>
-      <p>Estamos trabajando para crear la tienda de ropa del futuro</p>
+      <p>Estamos trabajando para crear tu closet de ropa del futuro</p>
     </>
   )
 }
