@@ -1,9 +1,15 @@
 .visualizer-page-wrapper {
-    display: flex;
-    flex-direction: column;
     height: calc(100vh - 60px);
     padding-top: 60px;
     padding-inline: 50px;
+}
+
+.visualizer-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .visualizer-page-header {

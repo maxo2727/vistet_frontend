@@ -23,8 +23,10 @@ const VisualizerPageBody = () => {
 const VisualizerPage = () => {
     return (
             <div className="visualizer-page-wrapper">
-                <VisualizerPageHeader />
-                <VisualizerPageBody />    
+                <div className="visualizer-page-content">
+                    <VisualizerPageHeader />
+                    <VisualizerPageBody />
+                </div>
             </div> 
     )
 }
