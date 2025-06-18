@@ -6,7 +6,7 @@
     font-family: inherit;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: var(--color-primary) 0.3s ease, color 0.3s ease;
     display: inline-block;
     text-align: center;
 }
@@ -16,12 +16,25 @@
     color: #fff;
 }
 
-.accept-button:hover,
-.accept-button:focus {
+.accept-button:hover {
     background-color: var(--color-primary-hover);
 }
 
 .cancel-button {
     background-color: var(--color-cancel);
     color: var(--color-text);
+}
+
+.tablist-button {
+    background-color: transparent;
+    color: var(--color-text);
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+}
+
+.tablist-button.active {
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-weight: bold;
 }
