@@ -1,0 +1,27 @@
+.button {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.accept-button {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.accept-button:hover,
+.accept-button:focus {
+    background-color: var(--color-primary-hover);
+}
+
+.cancel-button {
+    background-color: var(--color-cancel);
+    color: var(--color-text);
+}

@@ -1,0 +1,24 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 120px);
+    padding-top: 60px;
+    padding-inline: 50px;
+}
+
+.home-header {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-block: 20px;
+}
+
+.home-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    flex: 1;
+    height: 100%;
+    margin-bottom: 30px;
+}

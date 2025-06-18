@@ -1,0 +1,31 @@
+.visualizer-wrapper {
+    flex: 0 1 60%;
+    display: flex;
+}
+
+.visualizer-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 32px;
+    padding-top: 20px;
+}
+
+.visualizer-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.visualizer-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.visualizer-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #eae8ff;
+    margin: 20px;
+}
