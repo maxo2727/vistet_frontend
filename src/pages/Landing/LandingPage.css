@@ -1,0 +1,12 @@
+.landing-page-wrapper {
+    height: calc(100vh - 60px);
+    padding-top: 60px;
+}
+
+.landing-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

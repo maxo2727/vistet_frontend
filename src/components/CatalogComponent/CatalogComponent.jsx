@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import './Catalog.css';
-import Card from "../../components/Card/Card.jsx";
-import Button from "../../components/Button/Button.jsx";
-import ClothingCard from "../../components/ClothingCard/ClothingCard.jsx";
-import TabList from "../../components/TabList/TabList.jsx";
-import Input from "../../components/Input/Input.jsx";
+import './CatalogComponent.css';
+import Card from "../Layout/Card/Card.jsx";
+import Button from "../Layout/Button/Button.jsx";
+import ClothingCard from "../ClothingCard/ClothingCard.jsx";
+import TabList from "../Layout/TabList/TabList.jsx";
+import Input from "../Layout/Input/Input.jsx";
 
 const tabs=['Todos', 'Camisas', 'Pantalones', 'Zapatos']
 
 
-const Catalog = () => {
+const CatalogComponent = () => {
     const [activeTab, setActiveTab] = useState(0)
 
     return (
@@ -57,4 +57,4 @@ const Catalog = () => {
     );
 }
 
-export default Catalog;
+export default CatalogComponent;

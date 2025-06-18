@@ -1,4 +1,4 @@
-.home-page {
+.visualizer-page-wrapper {
     display: flex;
     flex-direction: column;
     height: calc(100vh - 60px);
@@ -6,14 +6,14 @@
     padding-inline: 50px;
 }
 
-.home-header {
+.visualizer-page-header {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
     padding-block: 20px;
 }
 
-.home-cards-container {
+.visualizer-page-cards-container {
     display: flex;
     justify-content: center;
     align-items: stretch;

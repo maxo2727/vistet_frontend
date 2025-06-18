@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "../../components/Card/Card.jsx";
-import Button from "../../components/Button/Button.jsx";
-import './Visualizer.css';
+import Card from "../Layout/Card/Card.jsx";
+import Button from "../Layout/Button/Button.jsx";
+import './VisualizerComponent.css';
 
-const Visualizer = () => {
+const VisualizerComponent = () => {
     return (
         <div className="visualizer-wrapper">
             <Card>
@@ -26,4 +26,4 @@ const Visualizer = () => {
     );
 }
 
-export default Visualizer;
+export default VisualizerComponent;

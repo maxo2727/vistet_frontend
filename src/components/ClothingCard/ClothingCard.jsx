@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../Card/Card.jsx";
+import Card from "../Layout/Card/Card.jsx";
 import './ClothingCard.css';
 
 const ClothingCard = ({ clothingItem }) => {
