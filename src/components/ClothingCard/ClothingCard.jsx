@@ -8,10 +8,10 @@ const ClothingCard = ({ clothingItem }) => {
             <Card>
                 <div className="clothing-card-content">
                     <div className="image-wrapper">
-                        <img src="https://png.pngtree.com/png-vector/20230902/ourmid/pngtree-white-t-shirt-mockup-hanging-realistic-t-shirt-png-image_9932970.png" alt={clothingItem} className="image-placeholder" />
+                        <img src={clothingItem.image} className="image-placeholder" />
                     </div>
                     <div className="content-wrapper">
-                        {clothingItem}
+                        {clothingItem.name}
                     </div>                    
                 </div>
             </Card>

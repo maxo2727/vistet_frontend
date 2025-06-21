@@ -9,7 +9,7 @@ import Input from "../Layout/Input/Input.jsx";
 const tabs=['Todos', 'Camisas', 'Pantalones', 'Zapatos']
 
 
-const CatalogComponent = () => {
+const CatalogComponent = ({ storeItems }) => {
     const [activeTab, setActiveTab] = useState(0)
 
     return (
@@ -41,7 +41,7 @@ const CatalogComponent = () => {
                     />
                 </div>   
                 <div className="catalog-grid">
-                    <ClothingCard clothingItem={'Camisa'} />
+                    {/* <ClothingCard clothingItem={'Camisa'} />
                     <ClothingCard clothingItem={'Pantalón'} />
                     <ClothingCard clothingItem={'Chaqueta'} />
                     <ClothingCard clothingItem={'Zapatos'} />
@@ -50,7 +50,13 @@ const CatalogComponent = () => {
                     <ClothingCard clothingItem={'Sombrero'} />
                     <ClothingCard clothingItem={'Sombrero'} />
                     <ClothingCard clothingItem={'Sombrero'} />
-                    <ClothingCard clothingItem={'Sombrero'} />
+                    <ClothingCard clothingItem={'Sombrero'} /> */}
+                    {storeItems.map((item) => (
+                        <ClothingCard 
+                            key={item.id} 
+                            clothingItem={item} 
+                        />
+                    ))}
                 </div>
             </Card>
         </div>

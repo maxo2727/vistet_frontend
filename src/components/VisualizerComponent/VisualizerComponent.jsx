@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../Layout/Card/Card.jsx";
 import Button from "../Layout/Button/Button.jsx";
+import VisualizerCarousel from "../Layout/Carousel/Carousel.jsx";
 import './VisualizerComponent.css';
+import storeItems from "../../data/StoreItemsDummy.jsx";
+
+const VisualizerComponent = ({ storeItems }) => {
+    return (
+        <div className="visualizer-card-wrapper">
+            <Card>
+                <div className="visualizer-card-content-wraper">
+                    <VisualizerHeader />
+                    <Visualizer />
+                </div>
+            </Card>
+        </div>
+    );
+}
 
 const VisualizerHeader = () => {
     return (
@@ -25,29 +40,10 @@ const Visualizer = () => {
     return (
         <div className="visualizer-wrapper">
             <div className='visualizer-column'>
-                <div className="visualizer-item">
-                    <img src="https://rehabclo.cl/cdn/shop/files/GORRO_COTELE1.png?v=1725042727&width=360" className="visualizer-item-img"></img>
-                </div>
-                <div className="visualizer-item">
-                    <img src="https://rehabclo.cl/cdn/shop/files/HERITAGEFSFR.png?v=1724258199&width=360" className="visualizer-item-img"></img>
-                </div>
-                <div className="visualizer-item">
-                    <img src="https://rehabclo.cl/cdn/shop/files/jortbkbl.png?v=1737654495&width=360" className="visualizer-item-img"></img>
-                </div>
+                <VisualizerCarousel images={storeItems} />
+                <VisualizerCarousel images={storeItems} />
+                <VisualizerCarousel images={storeItems} />
             </div>                         
-        </div>
-    );
-}
-
-const VisualizerComponent = () => {
-    return (
-        <div className="visualizer-card-wrapper">
-            <Card>
-                <div className="visualizer-card-content-wraper">
-                    <VisualizerHeader />
-                    <Visualizer />
-                </div>
-            </Card>
         </div>
     );
 }

@@ -2,6 +2,18 @@ import React from "react";
 import VisualizerComponent from "../../components/VisualizerComponent/VisualizerComponent.jsx";
 import CatalogComponent from "../../components/CatalogComponent/CatalogComponent.jsx";
 import './VisualizerPage.css';
+import storeItems from "../../data/StoreItemsDummy.jsx";
+
+const VisualizerPage = () => {
+    return (
+            <div className="visualizer-page-wrapper">
+                <div className="visualizer-page-content">
+                    <VisualizerPageHeader />
+                    <VisualizerPageBody />
+                </div>
+            </div> 
+    )
+}
 
 const VisualizerPageHeader = () => {
     return (
@@ -14,21 +26,10 @@ const VisualizerPageHeader = () => {
 const VisualizerPageBody = () => {
     return (
         <div className="visualizer-page-cards-container">
-            <VisualizerComponent />
-            <CatalogComponent />
+            <VisualizerComponent storeItems={storeItems}/>
+            <CatalogComponent storeItems={storeItems}/>
         </div>
     );
-}
-
-const VisualizerPage = () => {
-    return (
-            <div className="visualizer-page-wrapper">
-                <div className="visualizer-page-content">
-                    <VisualizerPageHeader />
-                    <VisualizerPageBody />
-                </div>
-            </div> 
-    )
 }
 
 export default VisualizerPage;

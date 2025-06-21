@@ -1,0 +1,13 @@
+.visualizer-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 0;
+}
+
+.visualizer-item-img {
+    max-width: 100%;
+    max-height: 100%;
+}
