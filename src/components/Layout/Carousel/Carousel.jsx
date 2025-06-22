@@ -13,9 +13,9 @@ const VisualizerCarousel = ({ images }) => {
 
     return (
         <div className="visualizer-item">
-            <button onClick={prev} className="carousel-button">{"<"}</button>
+            <button onClick={prev} className="visualizer-button">{"<"}</button>
             <img src={images[index].image} className="visualizer-item-img" />
-            <button onClick={next} className="carousel-button">{">"}</button>
+            <button onClick={next} className="visualizer-button">{">"}</button>
         </div>
     );
 }

@@ -1,0 +1,71 @@
+.outfit-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.outfit-card-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 240px;
+}
+
+.outfit-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 25%;
+    height: 100%;
+    width: 100%;
+}
+
+.outfit-image-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.outfit-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.outfit-text-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 0 55%;
+    display: flex;
+    height: 100%;
+}
+
+.outfit-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding-block: 20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.outfit-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.outfit-buttons-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 20%;
+}
