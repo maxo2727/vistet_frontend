@@ -41,16 +41,6 @@ const CatalogComponent = ({ storeItems }) => {
                     />
                 </div>   
                 <div className="catalog-grid">
-                    {/* <ClothingCard clothingItem={'Camisa'} />
-                    <ClothingCard clothingItem={'Pantalón'} />
-                    <ClothingCard clothingItem={'Chaqueta'} />
-                    <ClothingCard clothingItem={'Zapatos'} />
-                    <ClothingCard clothingItem={'Sombrero'} />
-                    <ClothingCard clothingItem={'Sombrero'} />
-                    <ClothingCard clothingItem={'Sombrero'} />
-                    <ClothingCard clothingItem={'Sombrero'} />
-                    <ClothingCard clothingItem={'Sombrero'} />
-                    <ClothingCard clothingItem={'Sombrero'} /> */}
                     {storeItems.map((item) => (
                         <ClothingCard 
                             key={item.id} 

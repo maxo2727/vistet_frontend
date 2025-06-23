@@ -8,9 +8,11 @@ const ClothingCard = ({ clothingItem }) => {
             <Card>
                 <div className="clothing-card-content">
                     <div className="image-wrapper">
-                        <img src={clothingItem.image} className="image-placeholder" />
+                        <div className="image-content">
+                            <img src={clothingItem.image} className="clothing-image" />
+                        </div> 
                     </div>
-                    <div className="content-wrapper">
+                    <div className="text-wrapper">
                         {clothingItem.name}
                     </div>                    
                 </div>

@@ -3,15 +3,15 @@ import Card from "../Layout/Card/Card.jsx";
 import Button from "../Layout/Button/Button.jsx";
 import VisualizerCarousel from "../Layout/Carousel/Carousel.jsx";
 import './VisualizerComponent.css';
-import storeItems from "../../data/StoreItemsDummy.jsx";
 
 const VisualizerComponent = ({ storeItems }) => {
+    console.log(storeItems);
     return (
         <div className="visualizer-card-wrapper">
             <Card>
                 <div className="visualizer-card-content-wraper">
                     <VisualizerHeader />
-                    <Visualizer />
+                    <Visualizer storeItems={storeItems}/>
                 </div>
             </Card>
         </div>
@@ -36,7 +36,7 @@ const VisualizerHeader = () => {
     );
 }
 
-const Visualizer = () => {
+const Visualizer = ({ storeItems }) => {
     return (
         <div className="visualizer-wrapper">
             <div className='visualizer-column'>
