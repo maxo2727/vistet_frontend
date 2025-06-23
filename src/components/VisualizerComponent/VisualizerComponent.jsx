@@ -3,23 +3,14 @@ import axios from "axios";
 import Card from "../Layout/Card/Card.jsx";
 import Button from "../Layout/Button/Button.jsx";
 import VisualizerCarousel from "../Layout/Carousel/Carousel.jsx";
+import SaveOutfitModal from "../SaveOutfitModal/SaveOutfitModal.jsx";
 import './VisualizerComponent.css';
 
 const VisualizerComponent = ({ storeItems, selectedOutfit, onSelectOutfit }) => {
+    const [isSaveOutfitModalOpen, setIsSaveOutfitModalOpen] = useState(false);
 
-    const saveOutfit = async () => {
-        try {
-            const outfitIds = Object.values(selectedOutfit).map(item => item.id);
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/outfit/`, {
-                name: 'hola',
-                user: 2,
-                rating: 1,
-                components: outfitIds
-            });
-            console.log("Outfit posted successfully:", response.data);
-        } catch (error) {
-            console.error("Error posting outfit:", error);
-        }
+    const handleOpenSaveOutfitModal = () => {
+        setIsSaveOutfitModalOpen(true);
     }
 
     return (
@@ -27,12 +18,17 @@ const VisualizerComponent = ({ storeItems, selectedOutfit, onSelectOutfit }) => 
             <Card>
                 <div className="visualizer-card-content-wraper">
                     <VisualizerHeader 
-                        onSaveOutfit={saveOutfit}
+                        onSaveOutfit={handleOpenSaveOutfitModal}
                     />
                     <Visualizer 
                         storeItems={storeItems}
                         selectedOutfit={selectedOutfit}
                         onSelectOutfit={onSelectOutfit}
+                    />
+                    <SaveOutfitModal 
+                        isOpen={isSaveOutfitModalOpen}
+                        onClose={() => setIsSaveOutfitModalOpen(false)}
+                        selectedOutfit={selectedOutfit}
                     />
                 </div>
             </Card>
@@ -40,14 +36,19 @@ const VisualizerComponent = ({ storeItems, selectedOutfit, onSelectOutfit }) => 
     );
 }
 
-const VisualizerHeader = ({ onSaveOutfit }) => {
+const VisualizerHeader = ({ onSaveOutfit  }) => {
+    
+    const handleSaveOutfit = () => {
+        onSaveOutfit();
+    }
+
     return (
         <div className="visualizer-card-header">
             <div className="visualizer-card-title">
                 Tu outfit
             </div>
             <div className="visualizer-card-buttons">
-                <Button onClick={() => onSaveOutfit()} className={'accept-button'}>
+                <Button onClick={handleSaveOutfit} className={'accept-button'}>
                     Guardar
                 </Button>
                 <Button onClick={() => console.log('cancelar')} className={'cancel-button'}>

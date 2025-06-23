@@ -32,7 +32,7 @@ const VisualizerCarousel = ({ images, selectedItem, onSelectOutfit }) => {
     return (
         <div className="visualizer-item">
             <button onClick={prev} className="visualizer-button">{"<"}</button>
-            <img src={selectedItem.image} className="visualizer-item-img" />
+            <img src={selectedItem.image_display_url} className="visualizer-item-img" />
             <button onClick={next} className="visualizer-button">{">"}</button>
         </div>
     );

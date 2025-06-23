@@ -9,7 +9,7 @@ const ClothingCard = ({ clothingItem, onSelectItem }) => {
                 <div className="clothing-card-content" onClick={() => onSelectItem(clothingItem, clothingItem.type)}>
                     <div className="image-wrapper">
                         <div className="image-content">
-                            <img src={clothingItem.image} className="clothing-image" />
+                            <img src={clothingItem.image_display_url} className="clothing-image" />
                         </div> 
                     </div>
                     <div className="text-wrapper">

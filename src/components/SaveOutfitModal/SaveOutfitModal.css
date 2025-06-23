@@ -1,0 +1,37 @@
+.save-outfit-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 600px;
+}
+
+.save-outfit-modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.save-outfit-modal-header-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.save-outfit-modal-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding-block: 20px;
+}
+
+.save-outfit-modal-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
