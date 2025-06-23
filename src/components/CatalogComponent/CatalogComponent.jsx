@@ -6,11 +6,26 @@ import ClothingCard from "../ClothingCard/ClothingCard.jsx";
 import TabList from "../Layout/TabList/TabList.jsx";
 import Input from "../Layout/Input/Input.jsx";
 
-const tabs=['Todos', 'Camisas', 'Pantalones', 'Zapatos']
+const tabs = ['Todos', 'Poleras', 'Pantalones', 'Gorro']
 
 
-const CatalogComponent = ({ storeItems }) => {
+const CatalogComponent = ({ storeItems, onSelectOutfit }) => {
     const [activeTab, setActiveTab] = useState(0)
+
+    const filterItemsByTab = (items, tab) => {
+        switch (tab) {
+            case 'Todos':
+                return items;
+            case 'Poleras':
+                return items.filter(item => item.type === 'POLERA');
+            case 'Pantalones':
+                return items.filter(item => item.type === 'PANTS' || item.type === 'SHORTS');
+            case 'Gorro':
+                return items.filter(item => item.type === 'ACCESSORIES');
+        }
+    }
+
+    const filteredItems = filterItemsByTab(storeItems, tabs[activeTab]);
 
     return (
         <div className="catalog-card-wrapper">
@@ -41,10 +56,11 @@ const CatalogComponent = ({ storeItems }) => {
                     />
                 </div>   
                 <div className="catalog-grid">
-                    {storeItems.map((item) => (
+                    {filteredItems.map((item) => (
                         <ClothingCard 
                             key={item.id} 
-                            clothingItem={item} 
+                            clothingItem={item}
+                            onSelectItem={onSelectOutfit}
                         />
                     ))}
                 </div>

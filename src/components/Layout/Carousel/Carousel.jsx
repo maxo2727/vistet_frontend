@@ -1,29 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Carousel.css";
 import Spinner from '../Spinner/Spinner';
 
-const VisualizerCarousel = ({ images }) => {
+const VisualizerCarousel = ({ images, selectedItem, onSelectOutfit }) => {
     const [index, setIndex] = useState(0);
+    
+    const prev = () => {
+        const newIndex = (index - 1 + images.length) % images.length;
+        setIndex(newIndex);
+        onSelectOutfit(images[newIndex], images[newIndex].type);
+    };
+    const next = () => {
+        const newIndex = (index + 1) % images.length;
+        setIndex(newIndex);
+        onSelectOutfit(images[newIndex], images[newIndex].type);
+    };
 
-    if (!images || images.length === 0) {
+    useEffect(() => {
+        const newIndex = images.findIndex(item => item.id === selectedItem.id);
+        setIndex(newIndex);
+    }, [selectedItem, images]);
+
+    if (!selectedItem) {
         return (
             <div className="visualizer-item">
                 <Spinner />
             </div>
         )
     }
-    
-    const prev = () => {
-        setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-    const next = () => {
-        setIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
 
     return (
         <div className="visualizer-item">
             <button onClick={prev} className="visualizer-button">{"<"}</button>
-            <img src={images[index].image} className="visualizer-item-img" />
+            <img src={selectedItem.image} className="visualizer-item-img" />
             <button onClick={next} className="visualizer-button">{">"}</button>
         </div>
     );
