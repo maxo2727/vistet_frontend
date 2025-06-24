@@ -3,6 +3,8 @@ import "./Carousel.css";
 import Spinner from '../Spinner/Spinner';
 
 const VisualizerCarousel = ({ images, selectedItem, onSelectOutfit }) => {
+    console.log("VisualizerCarousel images:", images);
+    console.log("VisualizerCarousel selectedItem:", selectedItem);
     const [index, setIndex] = useState(0);
     
     const prev = () => {

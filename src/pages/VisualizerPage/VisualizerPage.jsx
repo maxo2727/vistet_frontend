@@ -3,9 +3,11 @@ import VisualizerComponent from "../../components/VisualizerComponent/Visualizer
 import CatalogComponent from "../../components/CatalogComponent/CatalogComponent.jsx";
 import './VisualizerPage.css';
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 
 const VisualizerPage = () => {
+    const location = useLocation();
     const [storeItems, setStoreItems] = useState([]);
     const [selectedOutfit, setSelectedOutfit] = useState({});
 
@@ -30,28 +32,25 @@ const VisualizerPage = () => {
         }
     }
 
-    const handleAccesoriesNameError = (storeItem) => {
-        switch (storeItem.name) {
-            case "Product 7670558064702":
-                return "Trucker DeathWish Azul";
-            case "Product 7521102233662":
-                return "Gorro Hunter Camo";
-            case "Product 7670560129086":
-                return "Gorro Podium Shapeless Cotelé";
+    const initiateVisualizerPage = async () => {
+        const result = await axios.get(`${import.meta.env.VITE_API_URL}/api/clothe/all/`)
+        const fixedStoreItems = fixStoreItems(result.data.results);
+        setStoreItems(fixedStoreItems);
+        if (location.state && location.state.selectedOutfitLoaded) {
+            const lodadedProducts = location.state.productsLoaded;
+            console.log("loading outfit from state!", lodadedProducts);
+            const loadedSelectedOutfit = {
+                "accesorio": lodadedProducts.find(item => item.type === 'ACCESSORIES') || null,
+                "polera": lodadedProducts.find(item => item.type === 'POLERA') || null,
+                "pantalon": lodadedProducts.find(item => item.type === 'PANTS' || item.type === 'SHORTS') || null,
+            };
+            console.log("loading outfit!", loadedSelectedOutfit);
+            setSelectedOutfit(loadedSelectedOutfit);
+        } else {
+            console.log("setting default outfit");
+            setDefaultOutfit(fixedStoreItems);
         }
     }
-
-    const getClothes = async () => {
-        try {
-            const result = await axios.get(`${import.meta.env.VITE_API_URL}/api/clothe/all/`)
-            const fixedStoreItems = fixStoreItems(result.data.results);
-            setStoreItems(fixedStoreItems);
-            setDefaultOutfit(fixedStoreItems);
-            console.log("Store Items:", fixedStoreItems);
-        } catch (error) {
-            console.error("Error fetching data:", error);
-        }
-    }    
 
     const fixStoreItems = (storeItems) => {
         const fixedStoreItems = storeItems.map((storeItem) => {
@@ -63,6 +62,17 @@ const VisualizerPage = () => {
         return fixedStoreItems;
     }
 
+    const handleAccesoriesNameError = (storeItem) => {
+        switch (storeItem.name) {
+            case "Product 7670558064702":
+                return "Trucker DeathWish Azul";
+            case "Product 7521102233662":
+                return "Gorro Hunter Camo";
+            case "Product 7670560129086":
+                return "Gorro Podium Shapeless Cotelé";
+        }
+    }    
+
     const setDefaultOutfit = (fixedStoreItems) => {
         const defaultOutfit = {
             "accesorio": fixedStoreItems.find(item => item.type === 'ACCESSORIES') || null,
@@ -73,12 +83,8 @@ const VisualizerPage = () => {
     }
 
     useEffect(() => {
-        getClothes();
-    }, []);
-
-    useEffect(() => {
-        console.log("Selected Outfit Updated:", selectedOutfit);
-    }, [selectedOutfit]);
+        initiateVisualizerPage();
+    }, [location.state]);
 
     return (
             <div className="visualizer-page-wrapper">

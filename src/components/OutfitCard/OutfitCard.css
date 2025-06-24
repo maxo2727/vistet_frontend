@@ -68,4 +68,39 @@
     align-items: center;
     justify-content: center;
     flex: 0 0 20%;
+    height: 100%;
+}
+
+.outfit-buttons-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+}
+
+.outfit-comments-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.outfit-comments-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.outfit-comment-title {
+    font-weight: bold;
+}
+
+.outfit-comment-message {
+    font-style: italic;
 }
